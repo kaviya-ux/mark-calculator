@@ -3,772 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Student Grade Calculator</title>
-
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: Arial, sans-serif;
             min-height: 100vh;
             background: #f2f4f7;
             padding: 30px;
         }
-
         .main-container {
             max-width: 1200px;
             margin: auto;
-
             display: grid;
-
             grid-template-columns: 400px 1fr;
-
             gap: 25px;
-
             align-items: start;
         }
-
-
-        /* Calculator */
-
         .calculator {
             background: white;
-
             padding: 25px;
-
             border-radius: 15px;
-
             box-shadow:
                 0 5px 20px rgba(0, 0, 0, 0.12);
         }
-
-
         h1 {
             text-align: center;
-
             color: #333;
-
             margin-bottom: 8px;
         }
-
-
         .subtitle {
             text-align: center;
-
             color: #777;
-
             margin-bottom: 25px;
         }
-
-
         .form-group {
             margin-bottom: 15px;
         }
-
-
         label {
             display: block;
-
             margin-bottom: 6px;
-
             font-weight: bold;
-
             color: #444;
         }
-
-
         input {
             width: 100%;
-
             padding: 11px;
-
             border: 1px solid #ccc;
-
             border-radius: 7px;
-
             font-size: 15px;
-
             outline: none;
         }
-
-
         input:focus {
             border-color: #5b5bea;
         }
-
-
         .add-btn {
             width: 100%;
-
             padding: 12px;
-
             border: none;
-
             border-radius: 7px;
-
             background: #5b5bea;
-
             color: white;
-
             font-size: 16px;
-
             font-weight: bold;
-
             cursor: pointer;
         }
-
-
         .add-btn:hover {
             background: #4444d4;
         }
-
-
         #error {
             color: red;
-
             text-align: center;
-
             margin-top: 12px;
-
             font-size: 14px;
         }
-
-
-        /* Student Records */
-
         .records {
             background: white;
-
             padding: 25px;
-
             border-radius: 15px;
-
             box-shadow:
                 0 5px 20px rgba(0, 0, 0, 0.12);
-
             overflow-x: auto;
         }
-
-
         .records h2 {
             text-align: center;
-
             color: #333;
-
             margin-bottom: 20px;
         }
-
-
         table {
             width: 100%;
-
             border-collapse: collapse;
-
             min-width: 650px;
         }
-
-
         th {
             background: #5b5bea;
-
             color: white;
-
             padding: 12px;
-
             text-align: center;
         }
-
-
         td {
             padding: 11px;
-
             text-align: center;
-
             border-bottom: 1px solid #ddd;
         }
-
-
         tr:hover {
             background: #f7f7ff;
         }
-
-
         .delete-btn {
             background: #e74c3c;
-
             color: white;
-
             border: none;
-
             padding: 7px 12px;
-
             border-radius: 5px;
-
             cursor: pointer;
         }
-
-
         .delete-btn:hover {
             background: #c0392b;
         }
-
-
         .empty {
             text-align: center;
-
             color: #888;
-
             padding: 25px;
         }
-
-
-        /* Mobile */
-
         @media (max-width: 900px) {
-
             .main-container {
                 grid-template-columns: 1fr;
             }
-
             body {
                 padding: 15px;
             }
         }
-
     </style>
-
 </head>
-
-
 <body>
-
-
     <div class="main-container">
-
-
-        <!-- LEFT SIDE : CALCULATOR -->
-
         <div class="calculator">
-
             <h1>
                 Student Grade Calculator
             </h1>
-
-
             <p class="subtitle">
                 Enter student marks
             </p>
-
-
             <div class="form-group">
-
                 <label>
                     Student Name
                 </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter student name"
-                >
-
+                <input type="name" id="name" placeholder="Enter student name">
             </div>
-
-
             <div class="form-group">
-
-                <label>
-                    English
-                </label>
-
-                <input
-                    type="number"
-                    id="english"
-                    placeholder="0 - 100"
-                    min="0"
-                    max="100"
-                >
-
+                <label> English </label>
+                <input type="number" id="english" placeholder="0 - 100">
             </div>
-
-
             <div class="form-group">
-
-                <label>
-                    Mathematics
-                </label>
-
-                <input
-                    type="number"
-                    id="maths"
-                    placeholder="0 - 100"
-                    min="0"
-                    max="100"
-                >
-
+                <label> Mathematics  </label>
+                <input type="number" id="maths" placeholder="0 - 100" >
             </div>
-
-
             <div class="form-group">
-
-                <label>
-                    Science
-                </label>
-
-                <input
-                    type="number"
-                    id="science"
-                    placeholder="0 - 100"
-                    min="0"
-                    max="100"
-                >
-
+                <label>   Science </label>
+                <input type="number"id="science"  placeholder="0 - 100">
             </div>
-
-
             <div class="form-group">
-
-                <label>
-                    Computer Science
-                </label>
-
-                <input
-                    type="number"
-                    id="computer"
-                    placeholder="0 - 100"
-                    min="0"
-                    max="100"
-                >
-
+                <label> Computer Science  </label>
+                <input type="number" id="computer"placeholder="0 - 100">
             </div>
-
-
             <div class="form-group">
-
-                <label>
-                    Social Science
-                </label>
-
-                <input
-                    type="number"
-                    id="social"
-                    placeholder="0 - 100"
-                    min="0"
-                    max="100"
-                >
-
+                <label> Social Science </label>
+                <input type="number" id="social"  placeholder="0 - 100"  >
             </div>
-
-
-            <button
-                class="add-btn"
-                onclick="calculateGrade()">
-
+            <button class="add-btn"  onclick="calculateGrade()">
                 Add Student
-
             </button>
-
-
             <p id="error"></p>
-
         </div>
-
-
-
         <!-- RIGHT SIDE : STUDENT RECORDS -->
-
         <div class="records">
-
             <h2>
                 Student Records
             </h2>
-
-
             <table>
-
                 <thead>
-
                     <tr>
-
                         <th>#</th>
-
                         <th>Name</th>
-
                         <th>Total</th>
-
                         <th>Percentage</th>
-
                         <th>Grade</th>
-
                         <th>Result</th>
-
-                        <th>Action</th>
-
                     </tr>
-
                 </thead>
-
-
                 <tbody id="studentTable">
-
                     <tr>
-
-                        <td
-                            colspan="7"
-                            class="empty">
-
+                        <td colspan="7" class="empty">
                             No student records yet.
-
                         </td>
-
                     </tr>
-
                 </tbody>
-
             </table>
-
         </div>
-
-
     </div>
-
-
-
     <script>
-
         let studentRecords = [];
-
-
         function calculateGrade() {
-
-
-            const name =
-                document.getElementById("name")
-                .value
-                .trim();
-
-
-            const english =
-                Number(
-                    document.getElementById("english")
-                    .value
-                );
-
-
+            const name = document.getElementById("name").value.trim();
+            const english =Number(document.getElementById("english").value);
             const maths =
-                Number(
-                    document.getElementById("maths")
-                    .value
-                );
-
-
+                Number(document.getElementById("maths").value);
             const science =
-                Number(
-                    document.getElementById("science")
-                    .value
-                );
-
-
+                Number(document.getElementById("science").value);
             const computer =
-                Number(
-                    document.getElementById("computer")
-                    .value
-                );
-
-
+                Number(document.getElementById("computer").value);
             const social =
-                Number(
-                    document.getElementById("social")
-                    .value
-                );
-
-
+                Number(document.getElementById("social").value);
             const error =
                 document.getElementById("error");
-
-
             /* Name validation */
-
             if (name === "") {
-
                 error.textContent =
                     "Please enter student name.";
-
                 return;
             }
-
-
             /* Marks validation */
-
             const marks = [
-
-                english,
-
-                maths,
-
-                science,
-
-                computer,
-
-                social
-
+                english, maths, science, computer, social
             ];
-
-
             for (let mark of marks) {
-
                 if (
-                    isNaN(mark) ||
-                    mark < 0 ||
-                    mark > 100
+                    isNaN(mark) || mark < 0 || mark > 100
                 ) {
-
                     error.textContent =
                         "Please enter all marks between 0 and 100.";
-
                     return;
                 }
-
             }
-
-
-            /* Calculate total */
-
-            const total =
-                english +
-                maths +
-                science +
-                computer +
-                social;
-
-
-            /* Calculate percentage */
-
-            const percentage =
-                total / 5;
-
-
-            /* Calculate grade */
-
+            const total = english + maths + science + computer + social;
+            const percentage =total / 5;
             let grade;
-
-
             if (percentage >= 90) {
-
                 grade = "A+";
-
             }
-
             else if (percentage >= 80) {
-
                 grade = "A";
-
             }
-
             else if (percentage >= 70) {
-
                 grade = "B";
-
             }
-
             else if (percentage >= 60) {
-
                 grade = "C";
-
             }
-
             else if (percentage >= 50) {
-
                 grade = "D";
-
             }
-
             else {
-
                 grade = "F";
-
             }
-
-
-            /* Calculate result */
-
             let status;
-
-
             if (
-
-                english >= 35 &&
-
-                maths >= 35 &&
-
-                science >= 35 &&
-
-                computer >= 35 &&
-
-                social >= 35
-
+                english >= 35 && maths >= 35 && science >= 35 && computer >= 35 && social >= 35
             ) {
-
                 status = "PASS";
-
             }
-
             else {
-
                 status = "FAIL";
-
             }
-
-
-            /* Create student */
-
             const student = {
-
                 name: name,
-
                 total: total,
-
                 percentage:
                     percentage.toFixed(2),
-
                 grade: grade,
-
                 status: status
-
             };
-
-
-            /* Store student */
-
             studentRecords.push(student);
-
-
-            /* Display records */
-
             displayRecords();
-
-
-            /* Clear inputs */
-
-            document.getElementById("name")
-                .value = "";
-
-
-            document.getElementById("english")
-                .value = "";
-
-
-            document.getElementById("maths")
-                .value = "";
-
-
-            document.getElementById("science")
-                .value = "";
-
-
-            document.getElementById("computer")
-                .value = "";
-
-
-            document.getElementById("social")
-                .value = "";
-
-
+            document.getElementById("name").value = "";
+            document.getElementById("english").value = "";
+            document.getElementById("maths").value = "";
+            document.getElementById("science").value = "";
+            document.getElementById("computer").value = "";
+            document.getElementById("social").value = "";
             error.textContent = "";
-
         }
-
-
-
         function displayRecords() {
-
-
-            const table =
-                document.getElementById("studentTable");
-
-
+            const table =document.getElementById("studentTable");
             table.innerHTML = "";
-
-
             studentRecords.forEach(
-
                 function(student, index) {
-
-
-                    const row =
-                        document.createElement("tr");
-
-
+                    const row = document.createElement("tr");
                     row.innerHTML = `
-
                         <td>
                             ${index + 1}
                         </td>
-
                         <td>
                             ${student.name}
                         </td>
-
                         <td>
                             ${student.total}/500
                         </td>
-
                         <td>
                             ${student.percentage}%
                         </td>
-
                         <td>
                             ${student.grade}
                         </td>
-
                         <td>
                             ${student.status}
                         </td>
-
                         <td>
-
-                            <button
-                                class="delete-btn"
-                                onclick="deleteStudent(${index})">
-
+                            <button class="delete-btn" onclick="deleteStudent(${index})">
                                 Delete
-
                             </button>
-
                         </td>
-
                     `;
-
-
                     table.appendChild(row);
-
                 }
-
             );
-
         }
-
-
-
         function deleteStudent(index) {
-
-
             studentRecords.splice(index, 1);
-
-
             displayRecords();
-
         }
-
     </script>
-
-
 </body>
-
 </html>
