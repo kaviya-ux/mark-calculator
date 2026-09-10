@@ -17,6 +17,7 @@ A simple **Mark Calculator** web application that calculates a student's total m
 * CSS
 * JavaScript
 * Tailwind CSS
+  
  
 ## How It Works
 
