@@ -1,4 +1,4 @@
-# Mark Calculator
+# Mark Calculators
 
 A simple **Mark Calculator** web application that calculates a student's total marks, average, and grade based on the entered subject marks.
 
