@@ -72,20 +72,7 @@
         </div>
     </div>
     <script>
-        let studentRecords = [];
-        function calculateGrade() {
-            const name = document.getElementById("name").value.trim();
-            const english =Number(document.getElementById("english").value);
-            const maths =
-                Number(document.getElementById("maths").value);
-            const science =
-                Number(document.getElementById("science").value);
-            const computer =
-                Number(document.getElementById("computer").value);
-            const social =
-                Number(document.getElementById("social").value);
-            const error =
-                document.getElementById("error");
+
             /* Name validation */
             if (name === "") {
                 error.textContent =
