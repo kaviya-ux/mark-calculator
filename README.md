@@ -32,6 +32,3 @@ A simple **Mark Calculator** web application that calculates a student's total m
 ## Purpose
 
 This project was created to practice **HTML, CSS, Tailwind CSS, and JavaScript** concepts such as form handling, calculations, DOM manipulation, and conditional statements.
-
-
-
